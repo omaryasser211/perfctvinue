@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حجز قاعات المناسبات</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>مرحباً بك في موقع حجز القاعات 💒</h1>
+
+        <form class="booking-form" action="/halls" method="POST">
+            <label for="name">الاسم:</label>
+            <input type="text" id="name" name="name" placeholder="ادخل اسمك" required>
+
+            <label for="phone">رقم الهاتف:</label>
+            <input type="tel" id="phone" name="phone" placeholder="ادخل رقم تليفونك" required>
+
+            <label for="governorate">اختر المحافظة:</label>
+            <select id="governorate" name="governorate" required>
+                <option value="">اختر المحافظة</option>
+                <option value="القاهرة">القاهرة</option>
+                <option value="الجيزة">الجيزة</option>
+                <option value="الإسكندرية">الإسكندرية</option>
+                <option value="القليوبية">القليوبية</option>
+                <option value="المنوفية">المنوفية</option>
+                <option value="الإسماعيلية">الإسماعيلية</option>
+                <option value="الأقصر">الأقصر</option>
+                <option value="المنيا">المنيا</option>
+                <option value="البحر الأحمر">البحر الأحمر</option>
+                <option value="البحيرة">البحيرة</option>
+            </select>
+
+            <button type="submit">دخول</button>
+        </form>
+    </div>
+
+    <!-- تضمين الشات بوت -->
+    {% include '_chatbot.html' %}
+</body>
+
+</html>

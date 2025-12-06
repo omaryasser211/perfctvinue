@@ -1,0 +1,35 @@
+{
+  "default": {
+    "server": {
+      "host": "127.0.0.1",
+      "port": 5000,
+      "debug": true
+    },
+    "openrouter": {
+      "enabled": true,
+      "model": "openai/gpt-oss-20b:free",
+      "http_referer": "http://localhost/",
+      "title": "Halls Chatbot",
+      "api_key": "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"
+    }
+  },
+  "development": {
+    "server": {
+      "debug": true
+    }
+  },
+  "test": {
+    "server": {
+      "debug": false
+    },
+    "openrouter": {
+      "enabled": false
+    }
+  },
+  "production": {
+    "server": {
+      "host": "0.0.0.0",
+      "debug": false
+    }
+  }
+}

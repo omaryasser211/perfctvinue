@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>قاعات {{ governorate }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h2>مرحباً {{ name }} 👋</h2>
+        <h3>قاعات متاحة في {{ governorate }}:</h3>
+
+        {% if halls %}
+        <ul class="halls-list">
+            {% for hall in halls %}
+            <li>
+                <strong>{{ hall.name }}</strong>
+                <form class="halls-form" action="/book_hall" method="POST" style="margin-top: 10px;">
+                    <input type="hidden" name="name" value="{{ name }}">
+                    <input type="hidden" name="phone" value="{{ phone }}">
+                    <input type="hidden" name="governorate" value="{{ governorate }}">
+                    <input type="hidden" name="hall_id" value="{{ hall.id }}">
+                    <input type="hidden" name="hall_name" value="{{ hall.name }}">
+                    <a href="{{ hall.url }}" class="btn" target="_blank" rel="noopener noreferrer"
+                        aria-label="افتح صفحة الحجز في تبويب جديد ثم أكد الحجز" onclick="handleBooking(event)">ابحث
+                        الآن</a>
+                </form>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>عذرًا، لا توجد قاعات متاحة في هذه المحافظة حالياً.</p>
+        {% endif %}
+    </div>
+
+    {% include '_chatbot.html' %}
+
+    <script>
+        function handleBooking(e) {
+            const a = e.currentTarget;
+            const form = a.closest('form');
+            if (!form) return;
+            window.open(a.href, '_blank', 'noopener,noreferrer');
+            e.preventDefault();
+            form.submit();
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>تم تاكيد زيارتك</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* كارت شبه شفاف */
+        .card {
+            background: rgba(210, 191, 191, 0.3);
+            /* خلفية بيضاء شفافة خفيفة */
+            backdrop-filter: blur(2px);
+            /* تأثير زجاجي خفيف */
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            /* ظل خفيف */
+            max-width: 560px;
+            text-align: center;
+            margin: 40px auto;
+        }
+
+        /* زر العودة */
+        .btn {
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #ff007761;
+            /* Pink color */
+            color: white;
+            border-radius: 6px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #b3006b79;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            /* خلفية الصفحة */
+            margin: 0;
+            padding: 0;
+        }
+
+        p,
+        h2 {
+            color: #333;
+            /* نص واضح على الكارت */
+            margin: 6px 0;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <h2>🎉 تم تاكيد زيارتك!</h2>
+            <p>شكرًا لك <strong>{{ name or 'ضيف' }}</strong>.</p>
+            <p>شرفتنا في <strong>{{ hall_name or 'قاعة' }}</strong>.</p>
+            {% if request.form.get('phone') %}
+            <p>نتمنى أن تكون زيارتك لموقعنا ممتعة، ونرحب بك دائماً</p>
+            {% endif %}
+            <div style="margin-top: 16px;">
+                <a href="/" class="btn" aria-label="العودة إلى الصفحة الرئيسية">العودة إلى الصفحة الرئيسية</a>
+            </div>
+        </div>
+    </div>
+    {% include '_chatbot.html' %}
+</body>
+
+</html>

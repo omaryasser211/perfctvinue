@@ -1,0 +1,234 @@
+/* CSS Variables */
+:root {
+  --color-primary: #c65b7c;
+  --color-primary-hover: #a44864;
+  --color-secondary: #7a1f3d;
+  --color-accent: #d4a373;
+  --color-surface: #f9f3ee;
+  --color-muted: #6b6b6b;
+  --color-text: #2e2a25;
+  --focus-outline: #1f2937;
+}
+
+/* Base Styles */
+body {
+  background-image: url("/static/Background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  color: var(--color-text);
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Container styles */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* Form container */
+.container>div,
+.container>form {
+  max-width: 800px;
+  width: 100%;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Headings */
+h1,
+h2,
+h3 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+h1 {
+  font-size: 2.2rem;
+}
+
+/* Booking Form */
+.booking-form {
+  background-color: #f1f0ff6b;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+label {
+  font-weight: bold;
+  color: #444;
+  font-size: 1.1rem;
+}
+
+/* Halls List */
+.halls-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.halls-list li {
+  background-color: #f1f0ff6b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.halls-list li a {
+  background-color: var(--color-primary);
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.halls-list li a:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-2px);
+}
+
+/* Input and Select */
+input,
+select {
+  margin: 10px;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  color: var(--color-text);
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+/* Buttons */
+button {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  cursor: pointer;
+  border-radius: 8px;
+  margin: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Links */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Accessibility focus styles */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--focus-outline);
+  outline-offset: 2px;
+}
+
+/* Components */
+.btn {
+  padding: 12px 20px;
+  border-radius: 24px;
+  border: none;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: var(--color-secondary);
+}
+
+.btn-secondary:hover {
+  opacity: 0.9;
+}
+
+.card {
+  background: var(--color-surface);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 16px;
+}
+
+.input {
+  padding: 12px 14px;
+  border: 2px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.input:focus-visible {
+  border-color: var(--color-primary);
+}
+
+/* Background treatments */
+.bg-blur {
+  backdrop-filter: blur(8px);
+}
+
+body.bg-overlay::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(46, 42, 37, 0.12);
+  pointer-events: none;
+}
+
+body.bg-grade::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(198, 91, 124, 0.12) 0%, rgba(212, 163, 115, 0.12) 100%);
+  pointer-events: none;
+}
+
+body.bg-vignette::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.18) 100%);
+  pointer-events: none;
+}

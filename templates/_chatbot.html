@@ -1,0 +1,32 @@
+<!-- Chatbot Modal Component -->
+<button id="cb-open-button" class="chatbot-button" aria-label="فتح المساعد">💬</button>
+
+<div id="cb-overlay" class="chatbot-overlay" hidden></div>
+
+<div id="cb-dialog" class="chatbot-container" role="dialog" aria-modal="true" aria-labelledby="cb-title" aria-describedby="cb-desc" tabindex="-1" hidden>
+  <div class="chatbot-header">
+    <h3 id="cb-title">💬 مساعد حجز القاعات</h3>
+    <button id="cb-clear" class="clear-chat" aria-label="مسح المحادثة" title="مسح">🗑️</button>
+    <button id="cb-close" class="close-chat" aria-label="إغلاق المساعد" title="إغلاق">×</button>
+  </div>
+
+  <div id="cb-desc" class="visually-hidden">مربع حوار للمحادثة مع مساعد حجز القاعات.</div>
+
+  <div id="cb-messages" class="chatbot-messages" role="log" aria-live="polite" aria-relevant="additions text">
+    <div class="message bot-message">
+      مرحباً بك! 👋 أنا هنا لمساعدتك في حجز القاعة المناسبة.
+    </div>
+    <div id="cb-typing" class="typing-indicator" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <form id="cb-form" class="chatbot-input" autocomplete="off">
+    <label for="cb-input" class="visually-hidden">اكتب رسالتك للمساعد</label>
+    <input id="cb-input" type="text" placeholder="اكتب سؤالك هنا..." aria-label="نص الرسالة" required>
+    <button id="cb-send" type="submit">إرسال</button>
+  </form>
+</div>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='chatbot.css') }}">
+<script defer src="{{ url_for('static', filename='chatbot.js') }}"></script>

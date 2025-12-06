@@ -1,0 +1,35 @@
+{
+  "default": {
+    "server": {
+      "host": "127.0.0.1",
+      "port": 5000,
+      "debug": true
+    },
+    "openrouter": {
+      "enabled": true,
+      "model": "openrouter/auto",
+      "http_referer": "http://localhost/",
+      "title": "Halls Chatbot",
+      "api_key": "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"
+    }
+  },
+  "development": {
+    "server": {
+      "debug": true
+    }
+  },
+  "test": {
+    "server": {
+      "debug": false
+    },
+    "openrouter": {
+      "enabled": false
+    }
+  },
+  "production": {
+    "server": {
+      "host": "0.0.0.0",
+      "debug": false
+    }
+  }
+}
